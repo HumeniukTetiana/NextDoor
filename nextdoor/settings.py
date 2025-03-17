@@ -27,6 +27,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+AUTH_USER_MODEL = 'nextdoor.User' 
+
 
 # Application definition
 
@@ -37,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'nextdoor',
 ]
 
 MIDDLEWARE = [
@@ -75,10 +78,15 @@ WSGI_APPLICATION = 'nextdoor.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'clubs_db',
+        'USER': 'root',
+        'PASSWORD': '', #your password
+        'HOST': 'localhost',
+        'PORT': '3306', 
     }
 }
+
 
 
 # Password validation
